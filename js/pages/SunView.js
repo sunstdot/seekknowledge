@@ -20,6 +20,7 @@ import WebViewDetails from './WebViewDetails';
 //import Search from './Search';
 import ShortLine from '../component/ShortLine';
 import StoreDetails from './StoreDetails';
+import ColumnsDetails from './ColumnsDetails';
 
 const {height,width} = Dimensions.get('window');
 
@@ -170,6 +171,18 @@ let SunView = function(){
                 });
             });
         }
+
+        recomdColumnsAction(position){
+            const {navigator} = this.props;
+            InteractionManager.runAfterInteractions(()=>{
+                navigator.push({
+                    component:ColumnsDetails,
+                    name:'ColumnsDetails',
+                    data:eval(STORE_DATA.data[position])
+                })
+            })
+        }
+
         _renderDotIndicator(){
             return <PagerDotIndicator pageCount={4} />
         }
@@ -249,7 +262,7 @@ let SunView = function(){
                         <View style={{marginTop:8,backgroundColor:'white'}}>
                             <View style={{height:40,justifyContent:'center',alignItems:'center'}}><Text>订阅推荐</Text></View>
                             <View style={{flexDirection:'row',height:70}}>
-                                <TouchableOpacity onPress={()=>{this.centerItemAction(0)}}>
+                                <TouchableOpacity onPress={()=>{this.recomdColumnsAction(0)}}>
                                     <View style={{flexDirection:'row',width:item_width,marginTop:5}}>
                                         <Image source={CENTER_IMGS[4]} style={{marginLeft:20,width:66,height:47}} />
                                         <View style={{marginLeft:10}}>
@@ -259,7 +272,7 @@ let SunView = function(){
                                     </View>
                                 </TouchableOpacity>
                                 <Image resource={require('../imgs/sunview/ic_home_shu.png')} style={{height:60,marginTop:10}} />
-                                <TouchableOpacity onPress={()=>{this.centerItemAction(1)}}>
+                                <TouchableOpacity onPress={()=>{this.recomdColumnsAction(1)}}>
                                     <View style={{flexDirection:'row',width:item_width,marginTop:8}}>
                                         <Image source={CENTER_IMGS[5]} style={{marginLeft:20,width:66,height:47}} />
                                         <View style={{marginLeft:10}}>
@@ -271,7 +284,7 @@ let SunView = function(){
                             </View>
                             <ShortLine />
                             <View style={{flexDirection:'row',height:70}}>
-                                <TouchableOpacity onPress={()=>{this.centerItemAction(3)}}>
+                                <TouchableOpacity onPress={()=>{this.recomdColumnsAction(3)}}>
                                     <View style={{flexDirection:'row',width:item_width,marginTop:3}}>
                                         <Image source={CENTER_IMGS[6]} style={{width:66,height:47,marginLeft:20}} />
                                         <View style={{marginLeft:10,marginTop:8}}>
@@ -281,7 +294,7 @@ let SunView = function(){
                                     </View>
                                 </TouchableOpacity>
                                 <Image resource={require('../imgs/sunview/ic_home_shu.png')} style={{height:60}} />
-                                <TouchableOpacity onPress={()=>{this.centerItemAction(4)}}>
+                                <TouchableOpacity onPress={()=>{this.recomdColumnsAction(4)}}>
                                     <View style={{flexDirection:'row',width:item_width,marginTop:8}}>
                                         <Image source={CENTER_IMGS[7]} style={{width:66,height:47,marginLeft:20,marginTop:5}} />
                                         <View style={{marginLeft:10}}>

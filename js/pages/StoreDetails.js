@@ -82,7 +82,7 @@ class StoreDetails extends React.Component{
                     <TouchableOpacity onPress = {()=> {this.buttonBackAction()}} style={{justifyContent:'center',alignItems:'center'}}>
                         <Image source={require('../imgs/ic_center_back.png')}
                                style={{width:13,height:12}} />
-                    </TouchableOpactity>
+                    </TouchableOpacity>
                 </View>
                 <View style={{justifyContent:'center',alignItems:'center',flex:1}}>
                     <Text style={Styles.font}>{{name}}列表</Text>
@@ -117,3 +117,5 @@ class StoreDetails extends React.Component{
         )
     }
 }
+
+export default StoreDetails;

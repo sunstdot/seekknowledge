@@ -8,11 +8,16 @@ import {
     Image,
     View,
     Text,
+    StyleSheet
 } from 'react-native';
-
 import AweNavigator from './AweNavigator';
-
 let {width,height} = Dimensions.get('window');
+
+const Styles = StyleSheet.createClass({
+    container:{
+        flex:1
+    }
+});
 
 class Splash extends React.Component{
     constructor(props){
@@ -35,7 +40,7 @@ class Splash extends React.Component{
     }
     render(){
         return (
-            <View style={{flex:1}}>
+            <View style={Styles.container}>
                 <Image
                     style={{flex:1,width:width,height:height}}
                     source={require('./imgs/ic_welcome.jpeg')}
